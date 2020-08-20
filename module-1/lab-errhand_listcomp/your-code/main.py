@@ -89,6 +89,10 @@ print(consonants)
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
 
+import os
+
+os.listdir(x for x in /Users/fernandodelgadoteran/Desktop/IRONHACK)
+
 
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
@@ -209,28 +213,50 @@ def linux_interaction():
 
 # You will need to make some research on dictionary comprehension to solve the following questions
 '''
+'''
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
+def square():
+    num =int(input("Please enter an integer: "))
+    return num**2
 while True:
-    def  square ():
-        num = input("Please enter an integer:\n")
-        num = int(value)
-        return (num*num)
-square()
+    try:
+        square()
+        print(square())
+        break
+    except Exception as e:
+        print("You have't entered an integer, please do so.")
+        print(e)
 
-'''
+
+    '''
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
-
-
-
-
+'''
+divisible_by_two = [x for x in range(1, 1000) if x%7==0]
+divisible_by_three = [x for x in range(1, 1000) if x%7==0]
+divisible_by_four = [x for x in range(1, 1000) if x%7==0]
+divisible_by_five = [x for x in range(1, 1000) if x%7==0]
+divisible_by_six = [x for x in range(1, 1000) if x%7==0]
+divisible_by_seven = [x for x in range(1, 1000) if x%7==0]
+divisible_by_eight = [x for x in range(1, 1000) if x%7==0]
+divisible_by_nine = [x for x in range(1, 1000) if x%7==0]
+divisible = [divisible_by_two, divisible_by_three, divisible_by_four, divisible_by_five, divisible_by_six, divisible_by_seven, divisible_by_eight, divisible_by_nine]
+print(divisible)
+'''
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
-
-'''
+class ValueTooSmallError(Exception):
+    "Raised when the input value is too small"  
+    pass
+while True:
+    try:
+        Total_Marks = int(input("Enter Total Marks Scored: "))  
+        Num_of_Sections = int(input("Enter Num of Sections: "))
+        if Num_of_sections <= 2:
+            raise ValueTooSmallError
+        else:
+            break
