@@ -10,7 +10,7 @@ print(my_listComprehension)
 
 
 
-'''
+
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
 
@@ -91,8 +91,9 @@ print(consonants)
 
 import os
 
-os.listdir(x for x in /Users/fernandodelgadoteran/Desktop/IRONHACK)
 
+lista_dir = [x for x in os.listdir('/Users/fernandodelgadoteran/Desktop/IRONHACK/datamad0820')]
+print(lista_dir)
 
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
@@ -176,44 +177,51 @@ except ZeroDivisionError:
 except Exception as e:
     print("Ha fallado, verifique error:", sys.exc_info()[0])
     print(e)
-    break 
-
-
+    
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
-f = open('testfile','r')
-f.write('Test write this')
-
+import sys
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except Exception as e:
+    print("Algo ha fallado, error:", sys.exc_info()[0])
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
-
-fp = open('myfile.txt')
-    line = f.readline()
-    i = int(s.strip())
-
-
+import sys
+try:
+    fp = open('myfile.txt')
+    try:
+        line = f.readline()
+        i = int(s.strip())
+    except Exception:
+        print("Algo ha fallado, error: ", sys.exc_info()[0])
+except Exception as e:
+    print("Algo ha fallado, error: ", sys.exc_info()[0])
 
 
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
+import sys
 
-def linux_interaction():
-    assert ('linux' in sys.platform), "Function can only run on Linux systems."
-    print('Doing something.')
-
+try:
+    def linux_interaction():
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+        print('Doing something.')
+    linux_interaction()
+except Exception:
+    print("Algo ha fallado, error: ", sys.exc_info()[0])
 
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
-'''
-'''
+
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
@@ -230,10 +238,10 @@ while True:
         print(e)
 
 
-    '''
+
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
-'''
+
 divisible_by_two = [x for x in range(1, 1000) if x%7==0]
 divisible_by_three = [x for x in range(1, 1000) if x%7==0]
 divisible_by_four = [x for x in range(1, 1000) if x%7==0]
@@ -260,3 +268,5 @@ while True:
             raise ValueTooSmallError
         else:
             break
+
+'''
