@@ -59,4 +59,28 @@ class Saxon:
 
 
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+        '''
+        self.saxonhealth = 100
+        self.vikinghealth = 100
+        self.vikingdamage = random.randrange(0,40)
+        self.saxondamage = random.randrange(0,25)
+        '''
+    def addViking(self, viking):
+        self.vikingArmy.append(viking)
+    def addSaxon(self, saxon):
+        self.saxonArmy.append(saxon)
+    def vikingAttack(self):
+        import random
+        self.random.choice(self.saxonArmy)
+        self.random.choice(self.vikingArmy)
+        
+
+
+
+
+
+    
+    
