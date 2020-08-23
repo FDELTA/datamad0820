@@ -59,6 +59,7 @@ class Saxon:
 
 
 class War:
+    import random
     def __init__(self):
         self.vikingArmy = []
         self.saxonArmy = []
@@ -74,8 +75,42 @@ class War:
         self.saxonArmy.append(saxon)
     def vikingAttack(self):
         import random
-        self.random.choice(self.saxonArmy)
-        self.random.choice(self.vikingArmy)
+        vik = random.choice(self.vikingArmy)
+        sax = random.choice(self.saxonArmy)
+        damage_by_vik = sax.receiveDamage(vik.attack())
+
+        if sax.health <= 0:
+            self.saxonArmy.remove(sax)
+
+        return damage_by_vik 
+    def saxonAttack(self):
+        import random
+        vik2 = random.choice(self.vikingArmy)
+        sax2 = random.choice(self.saxonArmy)
+        damage_by_sax = vik2.receiveDamage(sax2.attack()) 
+
+        if vik2.health <= 0 :
+            self.vikingArmy.remove(vik2)
+
+        return damage_by_sax
+    def showStatus(self):
+        if len(self.saxonArmy) == 0:
+            return "Vikings have won the war of the century!"
+        elif len(self.vikingArmy) == 0:
+            return "Saxons have fought for their lives and survive another day..."
+        return "Vikings and Saxons are still in the thick of battle."
+
+
+
+
+
+
+
+
+
+        
+
+    
         
 
 
