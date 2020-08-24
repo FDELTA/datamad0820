@@ -77,13 +77,15 @@ d_max = np.max(d)
 d_min = np.min(d)
 d_mean = np.mean(d)
 print("d_max:", d_max)
+print("d_min:", d_min)
+print("d_mean:", d_mean)
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty(2*3*5, dtype=float)
 
-print("f", f)
+print("f previo arreglo es:", f)
 
 
 
