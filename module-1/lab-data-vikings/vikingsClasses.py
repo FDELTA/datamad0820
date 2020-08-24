@@ -78,7 +78,6 @@ class War:
         vik = random.choice(self.vikingArmy)
         sax = random.choice(self.saxonArmy)
         damage_by_vik = sax.receiveDamage(vik.attack())
-
         if sax.health <= 0:
             self.saxonArmy.remove(sax)
 
@@ -88,7 +87,6 @@ class War:
         vik2 = random.choice(self.vikingArmy)
         sax2 = random.choice(self.saxonArmy)
         damage_by_sax = vik2.receiveDamage(sax2.attack()) 
-
         if vik2.health <= 0 :
             self.vikingArmy.remove(vik2)
 
