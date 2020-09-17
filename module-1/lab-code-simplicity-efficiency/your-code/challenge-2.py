@@ -17,18 +17,11 @@ def RandomStringGenerator(l=12, a=['a','b','c','d','e','f','g','h','i','j','k','
     return s
 
 def BatchStringGenerator(n, a=8, b=12):
+    import random
+    import sys
     r = []
-    for i in range(n):
-        c = None
-        if a < b:
-            import random
-            c = random.choice(range(a, b))
-        elif a == b:
-            c = a
-        else:
-            import sys
-            sys.exit('Incorrect min and max string lengths. Try again.')
-        r.append(RandomStringGenerator(c))
+    c=random.choice(range(a,b))
+    [r.append(RandomStringGenerator(c)) if a <= b else sys.exit('Incorrect min and max strings lenghts.Try again.') for i in range(n)]
     return r
 
 a = input('Enter minimum string length: ')
